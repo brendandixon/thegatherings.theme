@@ -15,7 +15,7 @@
 	<?php if ( is_singular() ) : ?>
 		<div class="entry-content">
 			<?php
-			echo thegatherings_get_study_ratings();
+			echo thegatherings_get_ratings();
 
 			the_content( sprintf(
 				wp_kses(

@@ -284,6 +284,15 @@ function thegatherings_get_post_date() {
 }
 endif;
 
+if ( ! function_exists ( 'thegatherings_get_ratings' ) ) :
+function thegatherings_get_ratings() {
+	if ( is_study() )
+		return thegatherings_get_study_ratings();
+	else
+		return '';
+}
+endif;
+
 if ( ! function_exists ( 'thegatherings_get_study_ratings' ) ) :
 function thegatherings_get_study_ratings() {
 	$meta = get_post_meta( get_the_ID() );
