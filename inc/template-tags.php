@@ -291,10 +291,10 @@ function thegatherings_get_study_ratings() {
 	$cost = thegatherings_get_meta_field( 'cost', 0, $meta );
 	$cost = thegatherings_number_to_symbol( $cost, '<i class="fas fa-dollar-sign"></i>', 'Free' );
 
-	$host = thegatherings_get_meta_field( 'host_preparation', 0, $meta );
+	$host = thegatherings_get_meta_field( 'host_effort', 0, $meta );
 	$host = thegatherings_number_to_symbol( $host, '<i class="far fa-clock"></i>', 'None' );
 
-	$member = thegatherings_get_meta_field( 'member_preparation', 0, $meta );
+	$member = thegatherings_get_meta_field( 'member_effort', 0, $meta );
 	$member = thegatherings_number_to_symbol( $member, '<i class="far fa-clock"></i>', 'None' );
 
 	return
