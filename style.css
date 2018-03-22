@@ -1,0 +1,245 @@
+/*!
+Theme Name: thegatherings
+Theme URI: http://underscores.me/
+Author: Brendan Dixon
+Author URI: http://thegatherings.place/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: thegatherings
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+thegatherings is (very loosely) based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Barlow");
+html {
+  font-size: calc(75% + 0.5vw); }
+
+body {
+  color: rgba(74, 74, 74, 0.95);
+  font-family: 'Barlow', 'Verdana', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6em;
+  word-spacing: 0.3em; }
+
+a {
+  color: #72b7ed;
+  text-decoration: none; }
+  a:hover {
+    color: #2d2d2d;
+    text-decoration: none; }
+
+em {
+  font-style: normal;
+  font-weight: bold; }
+
+footer {
+  color: white; }
+  footer a {
+    color: white; }
+    footer a:visited {
+      color: white; }
+    footer a:hover {
+      color: rgba(74, 74, 74, 0.95);
+      text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(74, 74, 74, 0.95);
+  font-family: 'Montserrat', 'Verdana', 'Arial', sans-serif; }
+
+h1, h2 {
+  font-weight: bold; }
+
+h1 {
+  font-size: 2.2rem; }
+
+h2 {
+  font-size: 1.6rem; }
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: rgba(74, 74, 74, 0.95);
+    display: block;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0; }
+
+.hover-hide, a:hover .hover-show {
+  display: inline; }
+
+.hover-show, a:hover .hover-hide {
+  display: none; }
+
+a.card {
+  color: rgba(74, 74, 74, 0.95);
+  display: block;
+  text-decoration: none; }
+
+.card {
+  border: none;
+  margin: 0 0.9rem 2rem 0.9rem; }
+
+.card:hover img {
+  -webkit-filter: contrast(110%) saturate(130%);
+  filter: contrast(110%) saturate(130%); }
+
+.card-body {
+  padding: 0.15rem; }
+
+.card-subtitle {
+  margin-top: 0; }
+
+.card-text {
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.6em;
+  margin-top: -0.3rem; }
+
+html {
+  height: 100vh;
+  padding: 0;
+  margin: 0; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+
+footer {
+  flex-shrink: 0;
+  background-color: rgba(74, 74, 74, 0.25);
+  width: 100%; }
+  footer img {
+    width: 10rem; }
+  footer li {
+    list-style-type: none; }
+
+.content {
+  flex: 1 0 auto; }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1340px; } }
+
+nav a {
+  color: rgba(74, 74, 74, 0.95);
+  text-decoration: none; }
+  nav a:hover {
+    color: #72b7ed;
+    text-decoration: none; }
+
+.navbar-nav a.nav-link {
+  color: rgba(74, 74, 74, 0.95);
+  border-bottom: 0.2rem solid transparent;
+  display: inline-block;
+  font-size: 1rem;
+  padding-bottom: 0;
+  text-transform: lowercase; }
+  .navbar-nav a.nav-link.search {
+    color: #2d2d2d;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-top: 0; }
+  .navbar-nav a.nav-link.articles:hover, .navbar-nav a.nav-link.articles.active {
+    border-bottom-color: #72b7ed; }
+  .navbar-nav a.nav-link.studies:hover, .navbar-nav a.nav-link.studies.active {
+    border-bottom-color: #24d177; }
+  .navbar-nav a.nav-link.guides:hover, .navbar-nav a.nav-link.guides.active {
+    border-bottom-color: #fa9750; }
+  .navbar-nav a.nav-link.plans:hover, .navbar-nav a.nav-link.plans.active {
+    border-bottom-color: #9013fe; }
+  .navbar-nav a.nav-link.search:hover {
+    border-bottom-color: #2d2d2d; }
+
+.navbar-toggler-icon {
+  color: #2d2d2d; }
+
+.post-lead {
+  vertical-align: bottom; }
+
+.ratings {
+  background-color: rgba(125, 125, 125, 0.95);
+  color: #f1f1f1;
+  float: left;
+  line-height: 1.1em;
+  margin: 0 1em 0.2em 0; }
+  .ratings th, .ratings td {
+    font-size: 0.9em;
+    padding-left: 0.5em;
+    vertical-align: middle;
+    word-spacing: normal; }
+  .ratings td {
+    padding-right: 0.5em;
+    text-align: center; }
+    .ratings td svg {
+      display: inline-block;
+      margin-left: 0.2em; }
+  .ratings tr:first-of-type th, .ratings tr:first-of-type td {
+    padding-top: 0.5em; }
+  .ratings tr:last-of-type th, .ratings tr:last-of-type td {
+    padding-bottom: 0.5em; }
+
+.section {
+  border-left: 0.3rem solid transparent;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0;
+  padding-left: 0.4rem;
+  text-transform: lowercase; }
+
+.section.articles {
+  border-left-color: #72b7ed; }
+
+.section.studies {
+  border-left-color: #24d177; }
+
+.section.guides {
+  border-left-color: #fa9750; }
+
+.section.plans {
+  border-left-color: #9013fe; }
+
+.social a {
+  display: inline-block;
+  margin: 0 0.2rem; }

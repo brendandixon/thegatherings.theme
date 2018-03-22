@@ -1,0 +1,36 @@
+html {
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: transparentize($light-gray, 0.7);
+    width: 100%;
+    
+    img {
+        width: 10rem;
+    }
+    
+    li {
+        list-style-type: none;
+    }
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1340px;
+    }
+}
+

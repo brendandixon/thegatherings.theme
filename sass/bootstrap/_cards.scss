@@ -1,0 +1,27 @@
+a.card {
+    color: $light-gray;
+    display: block;
+    text-decoration: none;
+}
+
+
+.card {
+    border: none;
+    margin: 0 0.9rem 2rem 0.9rem;
+}
+.card:hover img {
+    -webkit-filter: contrast(110%) saturate(130%);
+    filter: contrast(110%) saturate(130%);
+}
+.card-body {
+    padding: 0.15rem;
+}
+.card-subtitle {
+    margin-top: 0;
+}
+.card-text {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.6em;
+    margin-top: -0.3rem;
+}

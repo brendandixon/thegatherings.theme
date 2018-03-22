@@ -1,0 +1,54 @@
+nav {
+    a {
+        color: $light-gray;
+        text-decoration: none;
+        
+        &:hover {
+            color: $blue;
+            text-decoration: none;
+        }
+    }
+}
+
+.navbar-nav {
+    a.nav-link {
+        color: $light-gray;
+        border-bottom: 0.2rem solid transparent;
+        display: inline-block;
+        font-size: 1rem;
+        padding-bottom: 0;
+        text-transform: lowercase;
+
+        &.search {
+            color: $dark-gray;
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-top: 0;
+        }
+
+        &.articles:hover, &.articles.active {
+            border-bottom-color: $blue;
+        }
+
+        &.studies:hover, &.studies.active {
+            border-bottom-color: $green;
+        }
+
+        &.guides:hover, &.guides.active {
+            border-bottom-color: $orange;
+        }
+
+        &.plans:hover, &.plans.active {
+            border-bottom-color: $purple;
+        }
+
+        &.search:hover {
+            border-bottom-color: $dark-gray;
+        }
+    }
+}
+
+.navbar-toggler-icon {
+    color: $dark-gray;
+}
