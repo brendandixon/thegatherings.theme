@@ -305,7 +305,7 @@ function thegatherings_main_query( $query ) {
 	if ( $query->is_home() && $query->is_main_query() ) {
 		$post_type = $query->get( 'post_type' );
 		if ( ! $post_type ) {
-			$post_type = array( 'nav_menu_item', 'articles', 'guides', 'plans', 'studies' );
+			$post_type = array( 'articles', 'guides', 'plans', 'studies' );
 		}
 		$query->set( 'post_type', $post_type );
 	}
