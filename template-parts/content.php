@@ -7,9 +7,10 @@
  * @package thegatherings
  */
 
+
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="container post px-md-3">
+<article id="post-<?php the_ID(); ?>" class="container post px-md-3 <?php echo thegatherings_get_post_type()['slug']; ?>">
 	<?php  get_template_part( 'template-parts/content-header' ); ?>
 
 	<?php if ( is_singular() ) : ?>

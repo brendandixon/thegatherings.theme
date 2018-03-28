@@ -51,6 +51,14 @@ function thegatherings_get_meta_field( $field, $default, $meta = null ) {
 	return is_array( $value ) && count( $value ) > 0 ? $value[0] : $default;
 }
 
+function thegatherings_get_post_type() {
+	$post_type = get_post_type();
+	$post_type_object = get_post_type_object( $post_type );
+	return array(
+		'name' => singularize( $post_type_object->name ),
+		'slug' => $post_type_object->rewrite['slug'] );
+}
+
 function thegatherings_number_to_symbol( $count, $symbol, $empty = '') {
 	if ( $count <= 0 )
 		return $empty;

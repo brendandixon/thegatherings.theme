@@ -29,7 +29,7 @@
                 ?>
                 <p class="mb-lg-0 mt-2">
                     <?php
-                        the_excerpt();
+                        echo thegatherings_get_first_paragraph();
                     ?>
                 </p>
             </div>

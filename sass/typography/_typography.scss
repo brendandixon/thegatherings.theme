@@ -13,11 +13,12 @@ body {
     font-size: 1rem;
     letter-spacing: 0.05em;
     line-height: 1.6em;
-    word-spacing: 0.3em;
+    word-spacing: 0.1em;
 }
 
 a {
     color: $blue;
+    font-weight: 600;
     text-decoration: none;
 
     &:hover {
@@ -28,7 +29,31 @@ a {
 
 em {
     font-style: normal;
-    font-weight: bold;
+    font-weight: normal;
+}
+
+.articles {
+    a, em {
+        color: $blue;
+    }
+} 
+
+.studies {
+    a, em {
+        color: $green;
+    }
+}
+
+.guides {
+    a, em {
+        color: $orange;
+    }
+}
+
+.plans {
+    a, em {
+        color: $purple;
+    }
 }
 
 

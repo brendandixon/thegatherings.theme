@@ -371,6 +371,14 @@ function thegatherings_scripts() {
 add_action( 'wp_enqueue_scripts', 'thegatherings_scripts' );
 
 /**
+ * Remove excerpt more text
+ */
+function thegatherings_excerpt_more($default = '') {
+    return '';
+}
+add_filter( 'excerpt_more', 'thegatherings_excerpt_more' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

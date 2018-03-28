@@ -27,10 +27,11 @@ body {
   font-size: 1rem;
   letter-spacing: 0.05em;
   line-height: 1.6em;
-  word-spacing: 0.3em; }
+  word-spacing: 0.1em; }
 
 a {
   color: #72b7ed;
+  font-weight: 600;
   text-decoration: none; }
   a:hover {
     color: #2d2d2d;
@@ -38,7 +39,19 @@ a {
 
 em {
   font-style: normal;
-  font-weight: bold; }
+  font-weight: normal; }
+
+.articles a, .articles em {
+  color: #72b7ed; }
+
+.studies a, .studies em {
+  color: #24d177; }
+
+.guides a, .guides em {
+  color: #fa9750; }
+
+.plans a, .plans em {
+  color: #9013fe; }
 
 footer {
   color: white; }
@@ -198,6 +211,26 @@ nav a {
 .post-lead {
   vertical-align: bottom; }
 
+.post-date {
+  border-left: 0.3rem solid transparent;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0;
+  padding-left: 0.4rem;
+  text-transform: lowercase; }
+
+.post-date.articles {
+  border-left-color: #72b7ed; }
+
+.post-date.studies {
+  border-left-color: #24d177; }
+
+.post-date.guides {
+  border-left-color: #fa9750; }
+
+.post-date.plans {
+  border-left-color: #9013fe; }
+
 .ratings {
   background-color: rgba(125, 125, 125, 0.95);
   color: #f1f1f1;
@@ -219,26 +252,6 @@ nav a {
     padding-top: 0.5em; }
   .ratings tr:last-of-type th, .ratings tr:last-of-type td {
     padding-bottom: 0.5em; }
-
-.section {
-  border-left: 0.3rem solid transparent;
-  font-size: 1rem;
-  line-height: 1.3rem;
-  padding: 0;
-  padding-left: 0.4rem;
-  text-transform: lowercase; }
-
-.section.articles {
-  border-left-color: #72b7ed; }
-
-.section.studies {
-  border-left-color: #24d177; }
-
-.section.guides {
-  border-left-color: #fa9750; }
-
-.section.plans {
-  border-left-color: #9013fe; }
 
 .social a {
   display: inline-block;

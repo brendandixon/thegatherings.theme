@@ -271,14 +271,13 @@ endif;
 
 if ( ! function_exists ( 'thegatherings_get_post_date' ) ) :
 function thegatherings_get_post_date() {
-	$post_type = get_post_type();
+	$type = thegatherings_get_post_type();
 
-	$post_type_object = get_post_type_object( $post_type );
-	$name = singularize( $post_type_object->name );
-	$slug = $post_type_object->rewrite['slug'];
+	$name = $type['name'];
+	$slug = $type['slug'];
 
 	return 
-		"<div class=\"my-2 text-muted section {$slug}\">{$name} &mdash; " .
+		"<div class=\"my-2 text-muted post-date {$slug}\">{$name} &mdash; " .
 		thegatherings_get_posted_on() .
 		'</div>';
 }
@@ -329,5 +328,23 @@ function thegatherings_get_latest_announcement() {
 	$posts = get_posts( array( 'category' => get_cat_ID( 'announcements' ) ) );
 	return count( $posts ) > 0 ? $posts[0] : NULL;
 	return NULL;
+}
+endif;
+
+if ( ! function_exists ( 'thegatherings_get_first_paragraph' ) ) :
+function thegatherings_get_first_paragraph( $post = null ) {
+	$post = get_post( $post );
+
+	$first_paragraph_str = wpautop( $post->post_content );
+
+	$i = strpos($first_paragraph_str, '<!--more-->');
+	if ( $i < 0 ) {
+		$i = strpos($first_paragraph_str, '</p>') + 4;
+	}
+
+	$first_paragraph_str = substr($first_paragraph_str, 0, $i);
+    $first_paragraph_str = strip_tags($first_paragraph_str, '<a><strong><em>');
+
+	return $first_paragraph_str;
 }
 endif;
