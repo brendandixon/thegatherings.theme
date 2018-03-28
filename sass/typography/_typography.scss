@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Barlow');
+// @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700|Raleway');
 
 html {
     font-size: calc(75% + 0.5vw);
@@ -7,6 +8,7 @@ html {
 body {
     color: $light-gray;
     font-family: 'Barlow', 'Verdana', 'Arial', sans-serif;
+    // font-family: 'Raleway', 'Courier New', sans-serif;
     font-weight: 400;
     font-size: 1rem;
     letter-spacing: 0.05em;
@@ -55,6 +57,7 @@ h5,
 h6 {
     color: $light-gray;
     font-family: 'Montserrat', 'Verdana', 'Arial', sans-serif;
+    // font-family: 'Poppins', 'Courier New', sans-serif;
 }
 
 h1, h2 {
