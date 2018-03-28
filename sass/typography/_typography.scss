@@ -18,8 +18,11 @@ body {
 
 a {
     color: $blue;
-    font-weight: 600;
     text-decoration: none;
+}
+
+article a {
+    font-weight: 600;
 
     &:hover {
         color: $dark-gray;

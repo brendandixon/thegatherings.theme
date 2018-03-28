@@ -9,9 +9,13 @@
 
 ?>
 
-<header class="row post-head mb-0 mb-lg-4">
+<header class="row post-head mb-0 mb-lg-3">
     <div class="col-12 col-lg-7 col-xl-8 mb-3 mb-lg-0">
-        <img class="w-100" src="<?php echo get_the_post_thumbnail_url(); ?>">
+        <div class="d-table h-100">
+            <div class="d-table-cell align-middle">
+                <img class="w-100" src="<?php echo get_the_post_thumbnail_url(); ?>">
+            </div>
+        </div>
     </div>
 
     <div class="col-12 col-lg-5 col-xl-4">
@@ -29,7 +33,7 @@
                 ?>
                 <p class="mb-lg-0 mt-2">
                     <?php
-                        echo thegatherings_get_first_paragraph();
+                        echo thegatherings_get_teaser();
                     ?>
                 </p>
             </div>

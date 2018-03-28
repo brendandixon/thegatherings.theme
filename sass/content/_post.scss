@@ -11,18 +11,18 @@
     text-transform: lowercase;
 }
 
-.post-date.articles {
+.articles .post-date {
     border-left-color: $blue;
 }
 
-.post-date.studies {
+.studies .post-date {
     border-left-color: $green;
 }
 
-.post-date.guides {
+.guides .post-date {
     border-left-color: $orange;
 }
 
-.post-date.plans {
+.plans .post-date {
     border-left-color: $purple;
 }

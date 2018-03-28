@@ -20,29 +20,20 @@ if ( have_posts() ) :
         the_post();
         ?>
 
-        <header class="row d-md-none"><div class="col-12">
-            <h1><?php echo single_cat_title( '', false ); ?></h1>
-        </div></header>
+        <?php
+            if ( is_archive() ) :
+                $type = thegatherings_get_post_type();
+        ?>
+                <header class="row d-md-none"><div class="col-12">
+                    <h1><?php echo $type['title']; ?></h1>
+                </div></header>
+        <?php
+            endif;
+        ?>
 
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-xl-8 offset-xl-2">
                 <?php echo thegatherings_get_post_card(); ?>
-            </div>
-            <div class="d-none d-lg-block col-lg-4">
-                <div class="d-table h-100">
-                    <div class="d-table-cell align-middle">
-                        <?php
-                        if ( is_archive() ) :
-                            echo get_the_archive_description();
-                        else :
-                            $post = thegatherings_get_latest_announcement();
-                            if ( $post ) {
-                                echo $post->post_content;
-                            }
-                        endif;
-                        ?>
-                    </div>
-                </div>
             </div>
         </div>
 

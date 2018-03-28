@@ -257,27 +257,32 @@ function thegatherings_get_post_card() {
 	$h = is_singular() ? 1 : 2;
 	$title = "<h{$h} class=\"card-title\">" . get_the_title() . "</h{$h}>";
 
+	$type = thegatherings_get_post_type();
+
+	$name = $type['name'];
+	$slug = $type['slug'];
+
 	return
-		'<a class="card mx-0 mt-0 mb-3" href="' . get_the_permalink() . '">' .
+		'<a class="card mx-0 mt-0 mb-3 '. $slug . '" href="' . get_the_permalink() . '">' .
 			'<img class="card-img-top" src="' . get_the_post_thumbnail_url() . '">' .
 			'<div class="card-body">' .
-				'<div class="card-subtitle">' . thegatherings_get_post_date() . '</div>' .
+				'<div class="card-subtitle">' . thegatherings_get_post_date( $name ) . '</div>' .
 				$title .
-				'<div class="card-text">' . get_the_excerpt() . '</div>' .
+				'<div class="card-text">' . thegatherings_get_teaser(true) . '</div>' .
 			'</div>' .
 		'</a>';
 }
 endif;
 
 if ( ! function_exists ( 'thegatherings_get_post_date' ) ) :
-function thegatherings_get_post_date() {
-	$type = thegatherings_get_post_type();
-
-	$name = $type['name'];
-	$slug = $type['slug'];
+function thegatherings_get_post_date( $name = null) {
+	if ( ! $name ) {
+		$type = thegatherings_get_post_type();
+		$name = $type['name'];
+	}
 
 	return 
-		"<div class=\"my-2 text-muted post-date {$slug}\">{$name} &mdash; " .
+		"<div class=\"my-2 text-muted post-date\">{$name} &mdash; " .
 		thegatherings_get_posted_on() .
 		'</div>';
 }
@@ -331,8 +336,8 @@ function thegatherings_get_latest_announcement() {
 }
 endif;
 
-if ( ! function_exists ( 'thegatherings_get_first_paragraph' ) ) :
-function thegatherings_get_first_paragraph( $post = null ) {
+if ( ! function_exists ( 'thegatherings_get_teaser' ) ) :
+function thegatherings_get_teaser( $strip_tags = false, $post = null ) {
 	$post = get_post( $post );
 
 	$first_paragraph_str = wpautop( $post->post_content );
@@ -342,8 +347,10 @@ function thegatherings_get_first_paragraph( $post = null ) {
 		$i = strpos($first_paragraph_str, '</p>') + 4;
 	}
 
-	$first_paragraph_str = substr($first_paragraph_str, 0, $i);
-    $first_paragraph_str = strip_tags($first_paragraph_str, '<a><strong><em>');
+	$first_paragraph_str = substr( $first_paragraph_str, 0, $i );
+	if ( $strip_tags ) {
+    	$first_paragraph_str = strip_tags( $first_paragraph_str, '<p>' );
+	}
 
 	return $first_paragraph_str;
 }
