@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Brendan Dixon
 Author URI: http://thegatherings.place/
 Description: Description
-Version: 1.0.8
+Version: 1.0.9
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: thegatherings
@@ -16,13 +16,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 thegatherings is (very loosely) based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Barlow");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway");
 html {
   font-size: calc(75% + 0.5vw); }
 
 body {
   color: rgba(74, 74, 74, 0.95);
-  font-family: 'Barlow', 'Verdana', 'Arial', sans-serif;
+  font-family: 'Raleway', 'Verdana', 'Arial', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.05em;
@@ -38,6 +38,11 @@ article a {
   article a:hover {
     color: #2d2d2d;
     text-decoration: none; }
+
+blockquote {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  margin: auto 2.2em; }
 
 em {
   font-style: normal;
@@ -72,13 +77,14 @@ h4,
 h5,
 h6 {
   color: rgba(74, 74, 74, 0.95);
-  font-family: 'Montserrat', 'Verdana', 'Arial', sans-serif; }
+  font-family: 'Montserrat', 'Verdana', 'Arial', sans-serif;
+  text-transform: lowercase; }
 
 h1, h2 {
   font-weight: bold; }
 
 h1 {
-  font-size: 2.2rem; }
+  font-size: 2.0rem; }
 
 h2 {
   font-size: 1.6rem; }

@@ -20,7 +20,7 @@
 
     <div class="col-12 col-lg-5 col-xl-4">
         <div class="d-table h-100">
-            <div class="d-table-cell align-bottom pb-lg-3 pb-xl-5">
+            <div class="d-table-cell align-bottom">
                 <?php
                     if ( is_singular() ) :
                         the_title( '<h1 class="entry-title">', '</h1>' );
@@ -31,11 +31,11 @@
                     echo thegatherings_get_post_date();
 
                 ?>
-                <p class="mb-lg-0 mt-2">
+                <div class="mt-2">
                     <?php
                         echo thegatherings_get_teaser();
                     ?>
-                </p>
+                </div>
             </div>
         </div>
     </div>
