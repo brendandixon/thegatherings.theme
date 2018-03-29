@@ -379,6 +379,11 @@ function thegatherings_excerpt_more($default = '') {
 add_filter( 'excerpt_more', 'thegatherings_excerpt_more' );
 
 /**
+ * Remove the Admin bar display from the site
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

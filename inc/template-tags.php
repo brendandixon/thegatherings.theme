@@ -344,7 +344,7 @@ function thegatherings_get_teaser( $strip_tags = false, $post = null ) {
 
 	$i = strpos($first_paragraph_str, '<!--more-->');
 	if ( $i < 0 ) {
-		$i = strpos($first_paragraph_str, '</p>') + 4;
+		return '';
 	}
 
 	$first_paragraph_str = substr( $first_paragraph_str, 0, $i );
@@ -354,4 +354,7 @@ function thegatherings_get_teaser( $strip_tags = false, $post = null ) {
 
 	return $first_paragraph_str;
 }
+endif;
+
+if ( ! function_exists ( 'thegatherings_the_excerpt' ) ) :
 endif;
