@@ -33,7 +33,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
         
-                    <a class="navbar-brand" href="<?php printf( home_url() ); ?>">
+                    <a class="navbar-brand mr-0" href="<?php printf( home_url() ); ?>">
                         <img class="img-fluid" src="<?php printf( get_template_directory_uri() . '/assets/images/logo-gray.svg'); ?>" />
                     </a>
         

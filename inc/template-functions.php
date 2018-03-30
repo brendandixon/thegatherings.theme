@@ -55,9 +55,9 @@ function thegatherings_get_post_type() {
 	$post_type = get_post_type();
 	$post_type_object = get_post_type_object( $post_type );
 	return array(
-		'name' => singularize( $post_type_object->name ),
+		'name' => $post_type_object->labels->singular_name,
 		'slug' => $post_type_object->rewrite['slug'], 
-		'title' => $post_type_object->name );
+		'title' => $post_type_object->labels->name );
 }
 
 function thegatherings_number_to_symbol( $count, $symbol, $empty = '') {

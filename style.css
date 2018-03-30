@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Brendan Dixon
 Author URI: http://thegatherings.place/
 Description: Description
-Version: 1.0.11
+Version: 1.0.12
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: thegatherings
@@ -16,7 +16,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 thegatherings is (very loosely) based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:b,bi|Raleway:b,bi");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Montserrat:i,b,bi|Raleway|Raleway:i,b,bi");
 html {
   font-size: calc(70% + 0.5vw); }
 
@@ -26,7 +26,7 @@ body {
   font-weight: 400;
   font-size: 0.9rem;
   letter-spacing: 0.03em;
-  line-height: 1.4em;
+  line-height: 1.6em;
   word-spacing: 0.05em; }
 
 a {
