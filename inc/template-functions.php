@@ -137,6 +137,10 @@ function get_involved_uri() {
 	return get_permalink( get_page_by_path( 'get-involved' ) );
 }
 
+function get_pillars_uri() {
+	return get_permalink( get_page_by_path( 'pillars' ) );
+}
+
 function starts_with($haystack, $needle) {
      $length = strlen($needle);
      return (substr($haystack, 0, $length) === $needle);

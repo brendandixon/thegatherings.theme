@@ -23,9 +23,9 @@
                             <img class="mr-2 img-fluid hover-show" src="<?php printf( get_template_directory_uri() . '/assets/images/logo-gray.svg'); ?>" />
                         </a>
                         <span class="pt-1 d-table-cell align-middle social">
-                            &mdash;
-                            <a href="mailto:info@thegatherings.place"><i class="fas fa-envelope-square"></i></a>
-                            <!-- <a href="home.html"><i class="fab fa-facebook"></i></a>
+                            <!-- &mdash;
+                            <a href="home.html"><i class="fas fa-envelope-square"></i></a>
+                            <a href="home.html"><i class="fab fa-facebook"></i></a>
                             <a href="home.html"><i class="fab fa-pinterest"></i></a>
                             <a href="home.html"><i class="fab fa-twitter-square"></i></a> -->
                         </span>
@@ -36,6 +36,7 @@
 						<ul class="mb-0 d-table-cell align-middle text-right">
 							<li><a href="<?php printf( about_uri() ); ?>">about</a></li>
                             <li><a href="<?php printf( faq_uri() ); ?>">faq</a></li>
+                            <li><a href="<?php printf ( get_pillars_uri() ); ?>">pillars</a></li>
                             <li><a href="<?php printf( get_involved_uri() ); ?>">get involved</a></li>
 							<!-- <li><a href="home.html">privacy policy</a></li> -->
 						</ul>
