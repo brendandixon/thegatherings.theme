@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="container px-md-3">
-	<header class="entry-header row mb-0 mb-lg-3">
+	<header class="entry-header row mb-0 mb-lg-1">
 		<div class="col-12">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</div>

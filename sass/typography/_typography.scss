@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:b,bi|Raleway:b,bi');
 
 html {
-    font-size: calc(75% + 0.5vw);
+    font-size: calc(70% + 0.5vw);
 }
 
 body {
     color: $light-gray;
     font-family: 'Raleway', 'Verdana', 'Arial', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    line-height: 1.6em;
-    word-spacing: 0.1em;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    line-height: 1.4em;
+    word-spacing: 0.05em;
 }
 
 a {
@@ -30,6 +30,7 @@ article a {
 
 blockquote {
     font-size: 0.9em;
+    font-style: italic;
     line-height: 1.4em;
     margin: auto 2.2em;
 }
@@ -90,7 +91,6 @@ h5,
 h6 {
     color: $light-gray;
     font-family: 'Montserrat', 'Verdana', 'Arial', sans-serif;
-    text-transform: lowercase;
 }
 
 h1, h2 {
@@ -98,8 +98,8 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2.0rem;
+    font-size: 1.8rem;
 }
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
