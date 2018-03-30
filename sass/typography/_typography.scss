@@ -36,31 +36,30 @@ blockquote {
 }
 
 em {
-    color: $blue;
     font-style: italic;
     font-weight: normal;
 }
 
 .articles {
-    a, em {
+    a {
         color: $blue;
     }
 } 
 
 .studies {
-    a, em {
+    a {
         color: $green;
     }
 }
 
 .guides {
-    a, em {
+    a {
         color: $orange;
     }
 }
 
 .plans {
-    a, em {
+    a {
         color: $purple;
     }
 }
