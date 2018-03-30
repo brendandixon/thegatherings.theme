@@ -10,6 +10,12 @@ nav {
     }
 }
 
+.nav-previous, .nav-next {
+    a:hover {
+        color: $light-gray;
+    }
+}
+
 .navbar-nav {
     a.nav-link {
         color: $light-gray;

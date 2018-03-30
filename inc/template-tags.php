@@ -235,12 +235,16 @@ function thegatherings_get_navigation( $previous = NULL, $next = NULL, $args = a
 		'screen_reader_text' => __( 'Posts navigation' ),
 	) );
 
+	$type = is_archive() || is_singular()
+				? thegatherings_get_post_type()['slug']
+				: '';
+
 	$navigation = '';
 
 	// Only add markup if there's somewhere to navigate to.
 	if ( $previous || $next ) {
 		$navigation =
-			'<nav class="container px-md-3 py-md-2" role="navigation"><h2 class="screen-reader-text">' .
+			'<nav class="container px-md-3 py-md-2 '. $type . '" role="navigation"><h2 class="screen-reader-text">' .
 			$args['screen_reader_text'] .
 			'</h2><div class="nav-links row justify-content-between">' .
 			'<div class="col-6 text-left">' . $previous . '</div>' .
