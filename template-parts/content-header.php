@@ -9,7 +9,7 @@
 
 ?>
 
-<header class="row post-head mb-0 mb-lg-3">
+<header class="row mb-0 mb-lg-3">
     <div class="col-12 col-lg-7 col-xl-8 mb-3 mb-lg-0">
         <div class="d-table h-100">
             <div class="d-table-cell align-middle">
