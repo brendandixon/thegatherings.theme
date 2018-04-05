@@ -224,6 +224,10 @@ function thegatherings_init() {
         'label' => 'Ages'
     );
     register_taxonomy( 'ages', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'All Adults', 'ages', array(
+        'description' => 'Appropriate for adults any age',
+        'slug' => 'all-adults'
+    ));
     wp_insert_term( 'Young Adults', 'ages', array(
         'description' => 'Appropriate for adults in their 20s and 30s',
         'slug' => 'young-adults'
@@ -300,6 +304,10 @@ function thegatherings_init() {
         'label' => 'Relationship'
     );
     register_taxonomy( 'relationship', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'All Relationships', 'relationship', array(
+        'description' => 'Designed for or suited to adults in any relationship',
+        'slug' => 'all-relationships'
+    ));
     wp_insert_term( 'Singles', 'relationship', array(
         'description' => 'Designed for or suited to single adults',
         'slug' => 'singles'
@@ -364,6 +372,10 @@ function thegatherings_init() {
         'label' => 'Vocation'
     );
     register_taxonomy( 'vocation', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'All Vocations', 'vocation', array(
+        'description' => 'Designed for or suited to adults in any vocational state',
+        'slug' => 'all-vocations'
+    ));
     wp_insert_term( 'College', 'vocation', array(
         'description' => 'Designed for or suited to a College vocational status',
         'slug' => 'college'
