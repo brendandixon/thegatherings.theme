@@ -58,7 +58,7 @@ function thegatherings_init() {
         'menu_position'			=> null,
         'capability_type'		=> 'post',
 		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array( 'post_tag' ),
+		'taxonomies'			=> array(),
         'has_archive'			=> true,
         'rewrite'				=> array( 'slug' => 'articles' ),
         'query_var'				=> true,
@@ -109,7 +109,7 @@ function thegatherings_init() {
         'menu_position'			=> null,
         'capability_type'		=> 'post',
 		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array( 'post_tag' ),
+		'taxonomies'			=> array(),
         'has_archive'			=> true,
         'rewrite'				=> array( 'slug' => 'guides' ),
         'query_var'				=> true,
@@ -160,7 +160,7 @@ function thegatherings_init() {
         'menu_position'			=> null,
         'capability_type'		=> 'post',
 		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array( 'post_tag' ),
+		'taxonomies'			=> array(),
         'has_archive'			=> true,
         'rewrite'				=> array( 'slug' => 'plans' ),
         'query_var'				=> true,
@@ -211,13 +211,175 @@ function thegatherings_init() {
         'menu_position'			=> null,
         'capability_type'		=> 'post',
 		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array( 'post_tag' ),
+		'taxonomies'			=> array(),
         'has_archive'			=> true,
         'rewrite'				=> array( 'slug' => 'studies' ),
         'query_var'				=> true,
     );
  
     register_post_type( 'studies', $args );
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Ages'
+    );
+    register_taxonomy( 'ages', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Young Adults', 'ages', array(
+        'description' => 'Appropriate for adults in their 20s and 30s',
+        'slug' => 'young-adults'
+    ));
+    wp_insert_term( 'Midlife Adults', 'ages', array(
+        'description' => 'Appropriate for adults in their 40s, 50s, and early 60s',
+        'slug' => 'midlife-adults'
+    ));
+    wp_insert_term( 'Older Adults', 'ages', array(
+        'description' => 'Appropriate for adults in their mid-60s and over',
+        'slug' => 'Older Adults'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Attributes'
+    );
+    register_taxonomy( 'attributes', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Book', 'attributes', array(
+        'description' => 'Includes or requires a book',
+        'slug' => 'book'
+    ));
+    wp_insert_term( 'Video', 'attributes', array(
+        'description' => 'Includes a video',
+        'slug' => 'video'
+    ));
+    wp_insert_term( 'Internet', 'attributes', array(
+        'description' => 'Requires Internet access',
+        'slug' => 'internet'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Focus'
+    );
+    register_taxonomy( 'focus', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Gather', 'focus', array(
+        'description' => 'Relates or contributes to the Gather pillar',
+        'slug' => 'gather'
+    ));
+    wp_insert_term( 'Adopt', 'focus', array(
+        'description' => 'Relates or contributes to the Adopt pillar',
+        'slug' => 'adopt'
+    ));
+    wp_insert_term( 'Shape', 'focus', array(
+        'description' => 'Relates or contributes to the Shape pillar',
+        'slug' => 'shape'
+    ));
+    wp_insert_term( 'Reflect', 'focus', array(
+        'description' => 'Relates or contributes to the Reflect pillar',
+        'slug' => 'reflect'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Gender'
+    );
+    register_taxonomy( 'gender', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Women', 'gender', array(
+        'description' => 'Designed for or suited to women',
+        'slug' => 'women'
+    ));
+    wp_insert_term( 'Men', 'gender', array(
+        'description' => 'Designed for or suited to men',
+        'slug' => 'men'
+    ));
+    wp_insert_term( 'Neutral', 'gender', array(
+        'description' => 'Not specific to either women or men',
+        'slug' => 'neutral'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Relationship'
+    );
+    register_taxonomy( 'relationship', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Singles', 'relationship', array(
+        'description' => 'Designed for or suited to single adults',
+        'slug' => 'singles'
+    ));
+    wp_insert_term( 'Single Parents', 'relationship', array(
+        'description' => 'Designed for or suited to single-parents adults',
+        'slug' => 'single-parents'
+    ));
+    wp_insert_term( 'Recently Married', 'relationship', array(
+        'description' => 'Designed for or suited to recently married adults',
+        'slug' => 'recently-married'
+    ));
+    wp_insert_term( 'Married', 'relationship', array(
+        'description' => 'Designed for or suited to married adults',
+        'slug' => 'married'
+    ));
+    wp_insert_term( 'Early Family', 'relationship', array(
+        'description' => 'Designed for or suited to early family life',
+        'slug' => 'early-familiy'
+    ));
+    wp_insert_term( 'Established Family', 'relationship', array(
+        'description' => 'Designed for or suited to established family life',
+        'slug' => 'established-familiy'
+    ));
+    wp_insert_term( 'Post Family', 'relationship', array(
+        'description' => 'Designed for or suited to families with adult children',
+        'slug' => 'post-familiy'
+    ));
+    wp_insert_term( 'Divorced', 'relationship', array(
+        'description' => 'Designed for or suited to divorced adults',
+        'slug' => 'divorced'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Topic'
+    );
+    register_taxonomy( 'topic', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'Bible &amp; Theology', 'topic', array(
+        'description' => 'Covers the Bible or Theology',
+        'slug' => 'bible-theology'
+    ));
+    wp_insert_term( 'Current Issues', 'topic', array(
+        'description' => 'Covers current issues',
+        'slug' => 'current-issues'
+    ));
+    wp_insert_term( 'Devotional &amp; Prayer', 'topic', array(
+        'description' => 'Covers Devotional or Prayer',
+        'slug' => 'devotional-prayer'
+    ));
+    wp_insert_term( 'Family &amp; Relationships', 'topic', array(
+        'description' => 'Covers the Family or Relationships',
+        'slug' => 'family-relationships'
+    ));
+    wp_insert_term( 'Work &amp; Vocation', 'topic', array(
+        'description' => 'Covers work and vocation',
+        'slug' => 'work-vocation'
+    ));
+
+    $args = array(
+        'hierarchical' => true,
+        'label' => 'Vocation'
+    );
+    register_taxonomy( 'vocation', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    wp_insert_term( 'College', 'vocation', array(
+        'description' => 'Designed for or suited to a College vocational status',
+        'slug' => 'college'
+    ));
+    wp_insert_term( 'Early Career', 'vocation', array(
+        'description' => 'Designed for or suited to a Early Career vocational status',
+        'slug' => 'early-career'
+    ));
+    wp_insert_term( 'Established Career', 'vocation', array(
+        'description' => 'Designed for or suited to a Established Career vocational status',
+        'slug' => 'established-career'
+    ));
+    wp_insert_term( 'Post Career', 'vocation', array(
+        'description' => 'Designed for or suited to a Post Career vocational status',
+        'slug' => 'post-career'
+    ));
 }
 endif;
 add_action( 'init', 'thegatherings_init' );
