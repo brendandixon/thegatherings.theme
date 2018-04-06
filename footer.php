@@ -36,7 +36,7 @@
 						<ul class="mb-0 d-table-cell align-middle text-right">
 							<li><a href="<?php printf( about_uri() ); ?>">about</a></li>
                             <li><a href="<?php printf( faq_uri() ); ?>">faq</a></li>
-                            <li><a href="<?php printf ( get_pillars_uri() ); ?>">pillars</a></li>
+                            <li><a href="<?php printf ( get_principles_uri() ); ?>">principles</a></li>
                             <li><a href="<?php printf( get_involved_uri() ); ?>">get involved</a></li>
 							<!-- <li><a href="home.html">privacy policy</a></li> -->
 						</ul>
