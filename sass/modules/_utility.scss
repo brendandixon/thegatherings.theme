@@ -5,3 +5,36 @@
 .hover-show, a:hover .hover-hide {
     display: none;
 }
+
+.credits-container {
+    position: relative;
+}
+.credits {
+    opacity:0.45;
+    position:absolute;
+    right:5px;
+    top:5px;
+    z-index:42;
+}
+
+.unsplash-credit {
+    background-color:black;
+    color:white !important;
+    text-decoration:none;
+    padding:2px 4px;
+    font-family:-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
+    font-size:0.7em;
+    font-weight:bold;
+    line-height:1.2;
+    display:inline-block;
+    border-radius:3px;
+
+    &:hover .unsplash-credit-name {
+        display:inline-block;
+        padding:2px 3px;
+    }
+}
+
+.unsplash-credit-name {
+    display:none;
+}

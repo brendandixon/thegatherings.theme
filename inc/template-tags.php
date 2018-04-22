@@ -265,16 +265,22 @@ function thegatherings_get_post_card() {
 
 	$name = $type['name'];
 	$slug = $type['slug'];
+	$credits = thegatherings_get_credits();
 
 	return
-		'<a class="card mx-0 mt-0 mb-3 '. $slug . '" href="' . get_the_permalink() . '">' .
-			'<img class="card-img-top" src="' . get_the_post_thumbnail_url() . '">' .
-			'<div class="card-body">' .
-				'<div class="card-subtitle">' . thegatherings_get_post_date( $name ) . '</div>' .
-				$title .
-				'<div class="card-text">' . thegatherings_get_teaser(true) . '</div>' .
+		'<div class="card credits-container mx-0 mt-0 mb-3 ' . $slug . '">' .
+			'<div class="credits">' . $credits . '</div>' .
+			'<div class="card-content">' .
+				'<a style="display:inline-block;" href="' . get_the_permalink() . '">' .
+					'<img class="card-img-top" src="' . get_the_post_thumbnail_url() . '"/>' .
+					'<div class="card-body">' .
+						'<div class="card-subtitle">' . thegatherings_get_post_date( $name ) . '</div>' .
+						$title .
+						'<div class="card-text">' . thegatherings_get_teaser(true) . '</div>' .
+					'</div>' .
+				'</a>' .
 			'</div>' .
-		'</a>';
+		'</div>';
 }
 endif;
 
@@ -360,5 +366,34 @@ function thegatherings_get_teaser( $strip_tags = false, $post = null ) {
 }
 endif;
 
-if ( ! function_exists ( 'thegatherings_the_excerpt' ) ) :
+if ( ! function_exists ( 'thegatherings_get_credits' ) ) :
+function thegatherings_get_credits() {
+	$image_id = get_post_thumbnail_id();
+	$image_post = get_post($image_id);
+	$credits = $image_post->post_content;
+	if ( ! empty( $credits ) ) {
+		$credits = explode( '|', $credits );
+		$credits = trim( $credits[0] ) == 'unsplash'
+					? thegatherings_unsplash_credit( trim( $credits[1] ), trim( $credits[2] ) )
+					: '';
+	}
+	return $credits;
+}
+endif;
+
+if ( ! function_exists ( 'thegatherings_unsplash_credit' ) ) :
+function thegatherings_unsplash_credit( $name, $id ) {
+	return
+		'<a class="unsplash-credit"' .
+			'href="https://unsplash.com/' . $id . '?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" ' .
+			'target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from ' . $name . '">' .
+			'<span style="display:inline-block;padding:2px 3px;">' .
+				'<svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32">' .
+					'<title>unsplash-logo</title>' .
+					'<path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path>' .
+				'</svg>' .
+			'</span>' .
+			'<span class="unsplash-credit-name">' . $name . '</span>' .
+		'</a>';
+}
 endif;

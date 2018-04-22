@@ -12,7 +12,8 @@
 <header class="row mb-0 mb-lg-3">
     <div class="col-12 col-lg-7 col-xl-8 mb-3 mb-lg-0">
         <div class="d-table h-100">
-            <div class="d-table-cell align-middle">
+            <div class="d-table-cell align-middle credits-container">
+                <div class="credits"><?php echo thegatherings_get_credits(); ?></div>
                 <img class="w-100" src="<?php echo get_the_post_thumbnail_url(); ?>">
             </div>
         </div>
