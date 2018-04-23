@@ -351,9 +351,9 @@ function thegatherings_get_rss_excerpt( $post = null ) {
 	$post = get_post( $post );
 
 	return
-		'<img style="display:block; margin-bottom:10px;" src="' . get_the_post_thumbnail_url() . '"/>' .
-		thegatherings_get_teaser() .
-		'<a href="' . get_the_permalink() . '"> Continue&hellip;</a>';
+		'<img style="display:block; margin-bottom:10px;" src="' . get_the_post_thumbnail_url( $post ) . '"/>' .
+		thegatherings_get_teaser( false, $post ) .
+		'<a href="' . get_the_permalink( $post ) . '"> Continue&hellip;</a>';
 }
 endif;
 
