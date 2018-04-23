@@ -93,7 +93,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		<dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
 		<?php the_category_rss('rss2') ?>
 
-		<guid isPermaLink="false"><?php the_guid(); ?></guid>
+		<guid isPermaLink="true"><?php echo get_the_permalink(); ?></guid>
 		<description><![CDATA[<?php echo thegatherings_get_rss_excerpt(); ?>]]></description>
 <?php rss_enclosure(); ?>
 	<?php
