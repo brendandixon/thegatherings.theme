@@ -221,7 +221,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Ages'
+        'label' => 'Ages',
+        'show_in_menu' => false
     );
     register_taxonomy( 'ages', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'All Adults', 'ages', array(
@@ -243,7 +244,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Attributes'
+        'label' => 'Attributes',
+        'show_in_menu' => false
     );
     register_taxonomy( 'attributes', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'Book', 'attributes', array(
@@ -261,7 +263,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Focus'
+        'label' => 'Focus',
+        'show_in_menu' => false
     );
     register_taxonomy( 'focus', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'Gather', 'focus', array(
@@ -283,7 +286,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Gender'
+        'label' => 'Gender',
+        'show_in_menu' => false
     );
     register_taxonomy( 'gender', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'Women', 'gender', array(
@@ -301,7 +305,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Relationship'
+        'label' => 'Relationship',
+        'show_in_menu' => false
     );
     register_taxonomy( 'relationship', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'All Relationships', 'relationship', array(
@@ -343,7 +348,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Topic'
+        'label' => 'Topic',
+        'show_in_menu' => false
     );
     register_taxonomy( 'topic', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'Bible &amp; Theology', 'topic', array(
@@ -369,7 +375,8 @@ function thegatherings_init() {
 
     $args = array(
         'hierarchical' => true,
-        'label' => 'Vocation'
+        'label' => 'Vocation',
+        'show_in_menu' => false
     );
     register_taxonomy( 'vocation', array( 'articles', 'guides', 'plans', 'studies' ), $args );
     wp_insert_term( 'All Vocations', 'vocation', array(
@@ -485,6 +492,55 @@ function thegatherings_main_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'thegatherings_main_query' );
+
+/**
+ * Add Custom Post Types to the default feed
+ *
+ * See http://www.wpbeginner.com/wp-tutorials/how-to-add-custom-post-types-to-your-main-wordpress-rss-feed/
+ *
+ */
+function thegatherings_inject_post_types( $qv ) {
+    if ( isset( $qv['feed'] ) && !isset( $qv['post_type'] ) ) {
+        $qv['post_type'] = array( 'articles', 'guides', 'plans', 'studies' );
+    }
+    return $qv;
+}
+add_filter( 'request', 'thegatherings_inject_post_types' );
+
+/**
+ * Add custom feed templates
+ *
+ * See https://codex.wordpress.org/Customizing_Feeds
+ */
+function thegatherings_custom_rdf() {
+    get_template_part( 'template-parts/feed', 'rdf' );
+}
+remove_all_actions( 'do_feed_rdf' );
+add_action( 'do_feed_rdf', 'thegatherings_custom_rdf', 10, 1);
+
+function thegatherings_custom_rss() {
+    get_template_part( 'template-parts/feed', 'rss' );
+}
+remove_all_actions( 'do_feed_rss' );
+add_action( 'do_feed_rss', 'thegatherings_custom_rss', 10, 1);
+
+function thegatherings_custom_rss2( $for_comments ) {
+    if ( $for_comments )
+        get_template_part( 'template-parts/feed', 'rss2-comments' );
+    else
+        get_template_part( 'template-parts/feed', 'rss2' );
+}
+remove_all_actions( 'do_feed_rss2' );
+add_action( 'do_feed_rss2', 'thegatherings_custom_rss2', 10, 1);
+
+function thegatherings_custom_atom() {
+    if ( $for_comments )
+        get_template_part( 'template-parts/feed', 'atom-comments' );
+    else
+        get_template_part( 'template-parts/feed', 'atom' );
+}
+remove_all_actions( 'do_feed_atom' );
+add_action( 'do_feed_atom', 'thegatherings_custom_atom', 10, 1);
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

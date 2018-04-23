@@ -276,7 +276,7 @@ function thegatherings_get_post_card() {
 					'<div class="card-body">' .
 						'<div class="card-subtitle">' . thegatherings_get_post_date( $name ) . '</div>' .
 						$title .
-						'<div class="card-text">' . thegatherings_get_teaser(true) . '</div>' .
+						'<div class="card-text">' . thegatherings_get_teaser( true ) . '</div>' .
 					'</div>' .
 				'</a>' .
 			'</div>' .
@@ -343,6 +343,17 @@ function thegatherings_get_latest_announcement() {
 	$posts = get_posts( array( 'category' => get_cat_ID( 'announcements' ) ) );
 	return count( $posts ) > 0 ? $posts[0] : NULL;
 	return NULL;
+}
+endif;
+
+if ( ! function_exists( 'thegatherings_get_rss_excerpt' ) ) :
+function thegatherings_get_rss_excerpt( $post = null ) {
+	$post = get_post( $post );
+
+	return
+		'<img style="display:block; margin-bottom:10px;" src="' . get_the_post_thumbnail_url() . '"/>' .
+		thegatherings_get_teaser() .
+		'<a href="' . get_the_permalink() . '"> Continue&hellip;</a>';
 }
 endif;
 
