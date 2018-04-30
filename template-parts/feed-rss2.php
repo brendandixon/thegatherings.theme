@@ -94,7 +94,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		<?php the_category_rss('rss2') ?>
 
 		<guid isPermaLink="true"><?php echo get_the_permalink(); ?></guid>
-		<description><![CDATA[<?php echo thegatherings_get_rss_excerpt(); ?>]]></description>
+		<description><![CDATA[<?php echo thegatherings_get_rss_card(); ?>]]></description>
 <?php rss_enclosure(); ?>
 	<?php
 	/**

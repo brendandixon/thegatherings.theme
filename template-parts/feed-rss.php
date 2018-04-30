@@ -33,7 +33,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 <?php while (have_posts()) : the_post(); ?>
 	<item>
 		<title><?php the_title_rss() ?></title>
-		<description><![CDATA[<?php echo thegatherings_get_rss_excerpt(); ?>]]></description>
+		<description><![CDATA[<?php echo thegatherings_get_rss_card(); ?>]]></description>
 		<link><?php the_permalink_rss() ?></link>
 		<?php
 		/**

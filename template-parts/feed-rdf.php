@@ -69,7 +69,7 @@ do_action( 'rss_tag_pre', 'rdf' );
 	<dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', $post->post_date_gmt, false); ?></dc:date>
 	<dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
 	<?php the_category_rss('rdf') ?>
-	<description><![CDATA[<?php echo thegatherings_get_rss_excerpt(); ?>]]></description>
+	<description><![CDATA[<?php echo thegatherings_get_rss_card(); ?>]]></description>
 	<?php
 	/**
 	 * Fires at the end of each RDF feed item.

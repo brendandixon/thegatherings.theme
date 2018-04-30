@@ -17,8 +17,10 @@ if ( ! function_exists( 'thegatherings_get_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function thegatherings_get_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	function thegatherings_get_posted_on( $for_rss = false ) {
+		$time_string = $for_rss
+						? '<time class="entry-date published updated" datetime="%1$s">%2$s</time>'
+						: '<time datetime="%1$s">%2$s</time>';
 		// if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		// 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		// }
@@ -284,6 +286,56 @@ function thegatherings_get_post_card() {
 }
 endif;
 
+if ( ! function_exists( 'thegatherings_get_rss_card' ) ) :
+function thegatherings_get_rss_card( $post = null ) {
+	$post = get_post( $post );
+
+	$header_style = 'color:rgba(74, 74, 74, 0.95);font-family: Montserrat, Verdana, Arial, sans-serif;font-size: 1.4rem;padding:0;margin:0;';
+
+	return
+		'<img style="display:block; margin-bottom:10px;" src="' . get_the_post_thumbnail_url( $post, 'large' ) . '"/>' .
+		thegatherings_get_rss_date() .
+		'<h1 style="' . $header_style . '">' . get_the_title() . '</h1>' .
+		'<div style="color:rgba(74, 74, 74, 0.75);">' .
+		thegatherings_get_teaser( true, $post ) .
+		' <a href="' . get_the_permalink() . '" target="_blank">Continue&hellip;</a>' .
+		'</div>';
+}
+endif;
+
+/*
+ * Keep RSS styles in-sync with SASS styles
+ * 
+.post-date {
+    border-left: 0.3rem solid transparent;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding:0;
+    padding-left: 0.4rem;
+    text-transform: lowercase;
+}
+
+.articles .post-date {
+    border-left-color: $blue;
+}
+
+.studies .post-date {
+    border-left-color: $green;
+}
+
+.guides .post-date {
+    border-left-color: $orange;
+}
+
+.plans .post-date {
+    border-left-color: $purple;
+}
+$blue: rgba(114, 183, 237, 1.0);
+$green: rgba(36, 209, 119, 1.0);
+$orange: rgba(250, 151, 80, 1.0);
+$purple: rgba(144, 19, 254, 1.0);
+*/
+
 if ( ! function_exists ( 'thegatherings_get_post_date' ) ) :
 function thegatherings_get_post_date( $name = null) {
 	if ( ! $name ) {
@@ -294,6 +346,36 @@ function thegatherings_get_post_date( $name = null) {
 	return 
 		"<div class=\"my-2 text-muted post-date\">{$name} &mdash; " .
 		thegatherings_get_posted_on() .
+		'</div>';
+}
+endif;
+
+if ( ! function_exists ( 'thegatherings_get_rss_date' ) ) :
+function thegatherings_get_rss_date() {
+	$type = thegatherings_get_post_type();
+	$name = $type['name'];
+	$slug = $type['slug'];
+
+	switch ( $slug ) {
+		case 'guides':
+			$color = 'rgba(250, 151, 80, 1.0)';
+			break;
+		case 'plans':
+			$color = 'rgba(144, 19, 254, 1.0)';
+			break;
+		case 'studies':
+			$color = 'rgba(36, 209, 119, 1.0)';
+			break;
+		default:
+			$color = 'rgba(114, 183, 237, 1.0)';
+			break;
+	}
+
+	$div_style = "border-left: 0.3rem solid {$color};font-size: 1rem;line-height: 1.3rem;padding:0 0 0 0.4rem;text-transform: lowercase;margin:0.4rem 0;";
+
+	return 
+		"<div style=\"{$div_style}\">{$name} &mdash; " .
+		thegatherings_get_posted_on( true ) .
 		'</div>';
 }
 endif;
@@ -343,17 +425,6 @@ function thegatherings_get_latest_announcement() {
 	$posts = get_posts( array( 'category' => get_cat_ID( 'announcements' ) ) );
 	return count( $posts ) > 0 ? $posts[0] : NULL;
 	return NULL;
-}
-endif;
-
-if ( ! function_exists( 'thegatherings_get_rss_excerpt' ) ) :
-function thegatherings_get_rss_excerpt( $post = null ) {
-	$post = get_post( $post );
-
-	return
-		'<img style="display:block; margin-bottom:10px;" src="' . get_the_post_thumbnail_url( $post, 'large' ) . '"/>' .
-		thegatherings_get_teaser( false, $post ) .
-		'<a href="' . get_the_permalink( $post ) . '"> Continue&hellip;</a>';
 }
 endif;
 

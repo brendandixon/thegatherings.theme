@@ -70,7 +70,7 @@ do_action( 'rss_tag_pre', 'atom' );
 		<updated><?php echo get_post_modified_time('Y-m-d\TH:i:s\Z', true); ?></updated>
 		<published><?php echo get_post_time('Y-m-d\TH:i:s\Z', true); ?></published>
 		<?php the_category_rss('atom') ?>
-		<summary type="<?php html_type_rss(); ?>"><![CDATA[<?php echo thegatherings_get_rss_excerpt(); ?>]]></summary>
+		<summary type="<?php html_type_rss(); ?>"><![CDATA[<?php echo thegatherings_get_rss_card(); ?>]]></summary>
 	<?php atom_enclosure();
 	/**
 	 * Fires at the end of each Atom feed item.
