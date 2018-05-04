@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Brendan Dixon
 Author URI: http://thegatherings.place/
 Description: Description
-Version: 1.1.9
+Version: 1.1.10
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: thegatherings
@@ -22,3 +22,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import "modules/modules";
 @import "bootstrap/bootstrap";
 @import "content/content";
+
+// Forever hide the silly JetPack infinite scroll footer
+#infinite-footer {
+    display: none;
+}
