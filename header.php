@@ -19,9 +19,27 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+    <?php if ( is_singular() ) : ?>
+    <meta property="og:url" content="<?php echo get_permalink(); ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo get_bloginfo('name'); ?>" />
+    <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
+    <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
+    <?php endif ?>
 </head>
 
 <body class="p-0 m-0">
+    <?php if ( is_singular() ) : ?>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <?php endif ?>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'thegatherings' ); ?></a>
 
     <header id="masthead" class="container px-md-4">
@@ -43,6 +61,13 @@
 
                                 $active = thegatherings_get_active_post_type();
                                 $types = thegatherings_get_post_types( $hide_empty = true );
+
+                                if ( $active || is_singular() ) {
+                                    printf(
+                                        '<li class="nav-item"><a class="nav-link" href="%s">Home</a></li>',
+                                        home_url()
+                                    );
+                                }
 
                                 foreach ( $types as $name => $type ) {
 

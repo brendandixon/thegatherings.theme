@@ -21,21 +21,31 @@
 
     <div class="col-12 col-lg-5 col-xl-4">
         <div class="d-table h-100">
-            <div class="d-table-cell align-bottom">
-                <?php
-                    if ( is_singular() ) :
-                        the_title( '<h1 class="entry-title">', '</h1>' );
-                    else :
-                        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-                    endif;
-
-                    echo thegatherings_get_post_date();
-
-                ?>
-                <div class="mt-2">
+            <?php if ( is_singular() ) : ?>
+                <div class="d-table-row">
+                    <div class="d-table-cell align-top text-right">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button invisible" data-text="I found this on theGatherings..." data-via="gatheringsplace" data-show-count="false">Tweet</a>
+                        <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                    </div>
+                </div>
+            <?php endif ?>
+            <div class="d-table-row">
+                <div class="d-table-cell align-bottom">
                     <?php
-                        echo thegatherings_get_teaser();
+                        if ( is_singular() ) :
+                            the_title( '<h1 class="entry-title">', '</h1>' );
+                        else :
+                            the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+                        endif;
+
+                        echo thegatherings_get_post_date();
+
                     ?>
+                    <div class="mt-2">
+                        <?php
+                            echo thegatherings_get_teaser();
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

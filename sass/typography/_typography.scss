@@ -64,6 +64,10 @@ em {
     }
 }
 
+.fb-like {
+    line-height:0.75em;
+}
+
 
 footer {
     color: white;
@@ -79,6 +83,11 @@ footer {
             color: $light-gray;
             text-decoration: none;
         }
+    }
+
+    .subheading {
+        color: $light-gray;
+        font-weight: bold;
     }
 }
 

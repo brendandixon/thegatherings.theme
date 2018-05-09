@@ -33,6 +33,10 @@ nav {
             margin-top: 0;
         }
 
+        &:hover {
+            border-bottom-color: $light-gray;
+        }
+
         &.articles:hover, &.articles.active {
             border-bottom-color: $blue;
         }
