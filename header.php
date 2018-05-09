@@ -23,7 +23,7 @@
     <?php if ( is_singular() ) : ?>
     <meta property="og:url" content="<?php echo get_permalink(); ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="<?php echo get_bloginfo('name'); ?>" />
+    <meta property="og:title" content="<?php the_title_attribute(); ?>" />
     <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
     <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
     <?php endif ?>
