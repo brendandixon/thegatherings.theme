@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Brendan Dixon
 Author URI: http://thegatherings.place/
 Description: Description
-Version: 1.1.12
+Version: 1.1.13
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: thegatherings
@@ -60,9 +60,6 @@ em {
 
 .plans a {
   color: #9013fe; }
-
-.fb-like {
-  line-height: 0.75em; }
 
 footer {
   color: white; }

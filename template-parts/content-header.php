@@ -9,6 +9,11 @@
 
 ?>
 
+<style>
+.fb-like > span[style] {
+    vertical-align: top!important;
+}
+</style>
 <header class="row mb-0 mb-lg-3">
     <div class="col-12 col-lg-7 col-xl-8 mb-3 mb-lg-0">
         <div class="d-table h-100">
@@ -23,8 +28,10 @@
         <div class="d-table h-100">
             <?php if ( is_singular() ) : ?>
                 <div class="d-table-row">
-                    <div class="d-table-cell align-top text-right">
+                    <div class="d-table-cell align-top text-right" style="padding-right:4px">
                         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button invisible" data-text="I found this on theGatherings..." data-via="gatheringsplace" data-show-count="false">Tweet</a>
+                    </div>
+                    <div class="d-table-cell align-top text-right">
                         <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
                     </div>
                 </div>
