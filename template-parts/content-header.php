@@ -17,9 +17,11 @@
 <header class="row mb-0 mb-lg-3">
     <div class="col-12 col-lg-7 col-xl-8 mb-3 mb-lg-0">
         <div class="d-table h-100">
-            <div class="d-table-cell align-middle credits-container">
-                <div class="credits"><?php echo thegatherings_get_credits(); ?></div>
-                <img class="w-100" src="<?php echo get_the_post_thumbnail_url(); ?>">
+            <div class="d-table-cell align-middle">
+                <div class="credits-container">
+                    <div class="credits"><?php echo thegatherings_get_credits(); ?></div>
+                    <img class="w-100" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                </div>
             </div>
         </div>
     </div>
@@ -28,11 +30,17 @@
         <div class="d-table h-100">
             <?php if ( is_singular() ) : ?>
                 <div class="d-table-row">
-                    <div class="d-table-cell align-top text-right" style="padding-right:4px">
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button invisible" data-text="I found this on theGatherings..." data-via="gatheringsplace" data-show-count="false">Tweet</a>
-                    </div>
                     <div class="d-table-cell align-top text-right">
-                        <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                        <table style="display:inline-block;">
+                            <tr>
+                                <td class="align-top text-right" style="padding-right:4px;">
+                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button invisible" data-text="I found this on theGatherings..." data-via="gatheringsplace" data-show-count="false">Tweet</a>
+                                </td>
+                                <td class="align-top text-right">
+                                    <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             <?php endif ?>
