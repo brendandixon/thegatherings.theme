@@ -37,7 +37,7 @@
                                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button invisible" data-text="I found this on theGatherings..." data-via="gatheringsplace" data-show-count="false">Tweet</a>
                                 </td>
                                 <td class="align-top text-right">
-                                    <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                                    <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
                                 </td>
                             </tr>
                         </table>
