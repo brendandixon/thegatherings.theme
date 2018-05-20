@@ -17,7 +17,7 @@ $types = get_categories( array(
 
 $type_links = array();
 foreach ( $types as $type ) {
-	$type_links[] = '<em><a href="' . get_post_type_archive_link( $type->slug ) . '">' . $type->slug . '</a></em>';
+	$type_links[] = '<em><a href="' . get_category_link( $type ) . '">' . $type->slug . '</a></em>';
 }
 $type_links = thegatherings_join( $type_links );
 ?>
