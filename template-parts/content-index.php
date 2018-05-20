@@ -32,10 +32,10 @@ if ( have_posts() ) :
 
         <?php
             if ( is_archive() ) :
-                $type = thegatherings_get_post_type();
+                $type = get_the_category()[0];
         ?>
                 <header class="row d-md-none"><div class="col-12">
-                    <h1><?php echo $type['title']; ?></h1>
+                    <h1><?php echo $type->slug; ?></h1>
                 </div></header>
         <?php
             endif;

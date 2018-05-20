@@ -238,7 +238,7 @@ function thegatherings_get_navigation( $previous = NULL, $next = NULL, $args = a
 	) );
 
 	$type = is_archive() || is_singular()
-				? thegatherings_get_post_type()['slug']
+				? get_the_category()[0]->slug
 				: '';
 
 	$navigation = '';
@@ -263,10 +263,10 @@ function thegatherings_get_post_card() {
 	$h = is_singular() ? 1 : 2;
 	$title = "<h{$h} class=\"card-title\">" . get_the_title() . "</h{$h}>";
 
-	$type = thegatherings_get_post_type();
+	$type = get_the_category()[0];
 
-	$name = $type['name'];
-	$slug = $type['slug'];
+	$name = $type->name;
+	$slug = $type->slug;
 	$credits = thegatherings_get_credits();
 
 	return
@@ -339,8 +339,8 @@ $purple: rgba(144, 19, 254, 1.0);
 if ( ! function_exists ( 'thegatherings_get_post_date' ) ) :
 function thegatherings_get_post_date( $name = null) {
 	if ( ! $name ) {
-		$type = thegatherings_get_post_type();
-		$name = $type['name'];
+		$type = get_the_category()[0];
+		$name = $type->name;
 	}
 
 	return 
@@ -352,9 +352,9 @@ endif;
 
 if ( ! function_exists ( 'thegatherings_get_rss_date' ) ) :
 function thegatherings_get_rss_date() {
-	$type = thegatherings_get_post_type();
-	$name = $type['name'];
-	$slug = $type['slug'];
+	$type = get_the_category()[0];
+	$name = $type->name;
+	$slug = $type->slug;
 
 	switch ( $slug ) {
 		case 'guides':

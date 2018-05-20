@@ -8,12 +8,16 @@
  */
 
 
-$active = thegatherings_get_active_post_type();
-$types = thegatherings_get_post_types( true );
+$active = get_the_category();
+$types = get_categories( array( 
+	'orderby' => 'name',
+	'parent' => 0,
+	'hide_empty' => 1
+));
 
 $type_links = array();
-foreach ( $types as $name => $value ) {
-	$type_links[] = '<em><a href="' . get_post_type_archive_link( $name ) . '">' . $value->label . '</a></em>';
+foreach ( $types as $type ) {
+	$type_links[] = '<em><a href="' . get_post_type_archive_link( $type->slug ) . '">' . $type->slug . '</a></em>';
 }
 $type_links = thegatherings_join( $type_links );
 ?>

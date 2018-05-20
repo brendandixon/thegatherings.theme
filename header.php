@@ -59,24 +59,27 @@
                         <ul class="navbar-nav ml-auto">
                             <?php
 
-                                $active = thegatherings_get_active_post_type();
-                                $types = thegatherings_get_post_types( $hide_empty = true );
+                                $types = get_categories( array( 
+                                    'orderby' => 'name',
+                                    'parent' => 0,
+                                    'hide_empty' => 1
+                                ));
 
-                                if ( $active || is_singular() ) {
+                                if ( is_archive() || is_singular() ) {
                                     printf(
                                         '<li class="nav-item"><a class="nav-link" href="%s">Home</a></li>',
                                         home_url()
                                     );
                                 }
 
-                                foreach ( $types as $name => $type ) {
+                                foreach ( $types as $type ) {
 
-                                    if ( ! $active || $type->rewrite['slug'] != $active->rewrite['slug'] ) {
-                                        $classes = $type->rewrite['slug'];
-                                        $link = 'href="' . get_post_type_archive_link( $name ) . '"';
+                                    if ( ( !is_archive() && !is_singular() ) || !has_category( $type->name ) ) {
+                                        $classes = $type->slug;
+                                        $link = 'href="' . get_category_link( $type ) . '"';
                                     }
                                     else {
-                                        $classes = $type->rewrite['slug'] . ' active';
+                                        $classes = $type->slug . ' active';
                                         $link = '';
                                     }
 
@@ -84,7 +87,7 @@
                                         '<li class="nav-item"><a class="nav-link %s" %s>%s</a></li>',
                                         $classes,
                                         $link,
-                                        $name
+                                        $type->slug
                                     );
                                 }
                             ?>

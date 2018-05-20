@@ -15,216 +15,12 @@ if ( ! function_exists( 'thegatherings_init' ) ) :
  */
 function thegatherings_init() {
 
-   $labels = array(
-        'name'                  => _x( 'Articles', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Article', 'Post type singular name', 'textdomain' ),
-        'add_new'               => __( 'Add Article', 'textdomain' ),
-        'add_new_item'          => __( 'Add New Article', 'textdomain' ),
-        'edit_item'             => __( 'Edit Article', 'textdomain' ),
-        'new_item'              => __( 'New Article', 'textdomain' ),
-        'view_item'             => __( 'View Article', 'textdomain' ),
-        'view_items'            => __( 'View Articles', 'textdomain' ),
-        'search_items'          => __( 'Search Articles', 'textdomain' ),
-        'not_found'             => __( 'No articles found.', 'textdomain' ),
-        'not_found_in_trash'    => __( 'No articles found in Trash.', 'textdomain' ),
-        'parent_item_colon'     => __( 'Parent Articles:', 'textdomain' ),
-        'all_items'             => __( 'All Articles', 'textdomain' ),
-        'archives'              => _x( 'Article archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain' ),
-		'attributes'			=> __( 'Article attributes', 'textdomain' ),
-        'insert_into_item'      => _x( 'Insert into articles', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain' ),
-        'uploaded_to_this_item' => _x( 'Uploaded to this articles', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain' ),
-        'featured_image'        => _x( 'Article Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'menu_name'             => _x( 'Articles', 'Admin Menu text', 'textdomain' ),
-        'filter_items_list'     => _x( 'Filter articles list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain' ),
-        'items_list_navigation' => _x( 'Articles list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
-        'items_list'            => _x( 'Articles list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
-    );
- 
-    $args = array(
-		'labels'				=> $labels,
-		'description'			=> __( 'Articles and features', 'textdomain' ),
-        'public'				=> true,
-        'hierarchical'			=> false,
-		'exclude_from_search'	=> false,
-		'publicly_queryable'	=> true,
-        'show_ui'				=> true,
-		'show_in_menu'			=> true,
-		'show_in_nav_menus'		=> true,
-		'show_in_admin_bar'		=> true,
-		'show_in_rest'			=> true,
-        'menu_position'			=> null,
-        'capability_type'		=> 'post',
-		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array(),
-        'has_archive'			=> true,
-        'rewrite'				=> array( 'slug' => 'articles' ),
-        'query_var'				=> true,
-    );
- 
-    register_post_type( 'articles', $args );
-
-   $labels = array(
-        'name'                  => _x( 'Guides', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Guide', 'Post type singular name', 'textdomain' ),
-        'add_new'               => __( 'Add Guide', 'textdomain' ),
-        'add_new_item'          => __( 'Add New Guide', 'textdomain' ),
-        'edit_item'             => __( 'Edit Guide', 'textdomain' ),
-        'new_item'              => __( 'New Guide', 'textdomain' ),
-        'view_item'             => __( 'View Guide', 'textdomain' ),
-        'view_items'            => __( 'View Guides', 'textdomain' ),
-        'search_items'          => __( 'Search Guides', 'textdomain' ),
-        'not_found'             => __( 'No guides found.', 'textdomain' ),
-        'not_found_in_trash'    => __( 'No guides found in Trash.', 'textdomain' ),
-        'parent_item_colon'     => __( 'Parent Guides:', 'textdomain' ),
-        'all_items'             => __( 'All Guides', 'textdomain' ),
-        'archives'              => _x( 'Guide archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain' ),
-		'attributes'			=> __( 'Guide attributes', 'textdomain' ),
-        'insert_into_item'      => _x( 'Insert into guides', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain' ),
-        'uploaded_to_this_item' => _x( 'Uploaded to this guides', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain' ),
-        'featured_image'        => _x( 'Guide Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'menu_name'             => _x( 'Guides', 'Admin Menu text', 'textdomain' ),
-        'filter_items_list'     => _x( 'Filter guides list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain' ),
-        'items_list_navigation' => _x( 'Guides list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
-        'items_list'            => _x( 'Guides list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
-    );
- 
-    $args = array(
-		'labels'				=> $labels,
-		'description'			=> __( 'Advice, ideas, and how-to guides', 'textdomain' ),
-        'public'				=> true,
-        'hierarchical'			=> false,
-		'exclude_from_search'	=> false,
-		'publicly_queryable'	=> true,
-        'show_ui'				=> true,
-		'show_in_menu'			=> true,
-		'show_in_nav_menus'		=> true,
-		'show_in_admin_bar'		=> true,
-		'show_in_rest'			=> true,
-        'menu_position'			=> null,
-        'capability_type'		=> 'post',
-		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array(),
-        'has_archive'			=> true,
-        'rewrite'				=> array( 'slug' => 'guides' ),
-        'query_var'				=> true,
-    );
- 
-    register_post_type( 'guides', $args );
-
-	$labels = array(
-        'name'                  => _x( 'Plans', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Plan', 'Post type singular name', 'textdomain' ),
-        'add_new'               => __( 'Add Plan', 'textdomain' ),
-        'add_new_item'          => __( 'Add New Plan', 'textdomain' ),
-        'edit_item'             => __( 'Edit Plan', 'textdomain' ),
-        'new_item'              => __( 'New Plan', 'textdomain' ),
-        'view_item'             => __( 'View Plan', 'textdomain' ),
-        'view_items'            => __( 'View Plans', 'textdomain' ),
-        'search_items'          => __( 'Search Plans', 'textdomain' ),
-        'not_found'             => __( 'No plans found.', 'textdomain' ),
-        'not_found_in_trash'    => __( 'No plans found in Trash.', 'textdomain' ),
-        'parent_item_colon'     => __( 'Parent Plans:', 'textdomain' ),
-        'all_items'             => __( 'All Plans', 'textdomain' ),
-        'archives'              => _x( 'Plan archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain' ),
-		'attributes'			=> __( 'Plan attributes', 'textdomain' ),
-        'insert_into_item'      => _x( 'Insert into plans', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain' ),
-        'uploaded_to_this_item' => _x( 'Uploaded to this plans', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain' ),
-        'featured_image'        => _x( 'Plan Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'menu_name'             => _x( 'Plans', 'Admin Menu text', 'textdomain' ),
-        'filter_items_list'     => _x( 'Filter plans list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain' ),
-        'items_list_navigation' => _x( 'Plans list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
-        'items_list'            => _x( 'Plans list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
-    );
- 
-    $args = array(
-		'labels'				=> $labels,
-		'description'			=> __( 'Topical plans', 'textdomain' ),
-        'public'				=> true,
-        'hierarchical'			=> false,
-		'exclude_from_search'	=> false,
-		'publicly_queryable'	=> true,
-        'show_ui'				=> true,
-		'show_in_menu'			=> true,
-		'show_in_nav_menus'		=> true,
-		'show_in_admin_bar'		=> true,
-		'show_in_rest'			=> true,
-        'menu_position'			=> null,
-        'capability_type'		=> 'post',
-		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array(),
-        'has_archive'			=> true,
-        'rewrite'				=> array( 'slug' => 'plans' ),
-        'query_var'				=> true,
-    );
- 
-    register_post_type( 'plans', $args );
-
-	$labels = array(
-        'name'                  => _x( 'Studies', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Study', 'Post type singular name', 'textdomain' ),
-        'add_new'               => __( 'Add Study', 'textdomain' ),
-        'add_new_item'          => __( 'Add New Study', 'textdomain' ),
-        'edit_item'             => __( 'Edit Study', 'textdomain' ),
-        'new_item'              => __( 'New Study', 'textdomain' ),
-        'view_item'             => __( 'View Study', 'textdomain' ),
-        'view_items'            => __( 'View Studies', 'textdomain' ),
-        'search_items'          => __( 'Search Studies', 'textdomain' ),
-        'not_found'             => __( 'No studies found.', 'textdomain' ),
-        'not_found_in_trash'    => __( 'No studies found in Trash.', 'textdomain' ),
-        'parent_item_colon'     => __( 'Parent Studies:', 'textdomain' ),
-        'all_items'             => __( 'All Studies', 'textdomain' ),
-        'archives'              => _x( 'Study archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain' ),
-		'attributes'			=> __( 'Study attributes', 'textdomain' ),
-        'insert_into_item'      => _x( 'Insert into studies', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain' ),
-        'uploaded_to_this_item' => _x( 'Uploaded to this studies', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain' ),
-        'featured_image'        => _x( 'Study Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'menu_name'             => _x( 'Studies', 'Admin Menu text', 'textdomain' ),
-        'filter_items_list'     => _x( 'Filter studies list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain' ),
-        'items_list_navigation' => _x( 'Studies list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
-        'items_list'            => _x( 'Studies list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
-    );
- 
-    $args = array(
-		'labels'				=> $labels,
-		'description'			=> __( 'Study and book reviews', 'textdomain' ),
-        'public'				=> true,
-        'hierarchical'			=> false,
-		'exclude_from_search'	=> false,
-		'publicly_queryable'	=> true,
-        'show_ui'				=> true,
-		'show_in_menu'			=> true,
-		'show_in_nav_menus'		=> true,
-		'show_in_admin_bar'		=> true,
-		'show_in_rest'			=> true,
-        'menu_position'			=> null,
-        'capability_type'		=> 'post',
-		'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' ),
-		'taxonomies'			=> array(),
-        'has_archive'			=> true,
-        'rewrite'				=> array( 'slug' => 'studies' ),
-        'query_var'				=> true,
-    );
- 
-    register_post_type( 'studies', $args );
-
     $args = array(
         'hierarchical' => true,
         'label' => 'Ages',
         'show_in_menu' => false
     );
-    register_taxonomy( 'ages', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'ages', array( 'post' ), $args );
     wp_insert_term( 'All Adults', 'ages', array(
         'description' => 'Appropriate for adults any age',
         'slug' => 'all-adults'
@@ -247,7 +43,7 @@ function thegatherings_init() {
         'label' => 'Attributes',
         'show_in_menu' => false
     );
-    register_taxonomy( 'attributes', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'attributes', array( 'post' ), $args );
     wp_insert_term( 'Book', 'attributes', array(
         'description' => 'Includes or requires a book',
         'slug' => 'book'
@@ -266,7 +62,7 @@ function thegatherings_init() {
         'label' => 'Focus',
         'show_in_menu' => false
     );
-    register_taxonomy( 'focus', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'focus', array( 'post' ), $args );
     wp_insert_term( 'Gather', 'focus', array(
         'description' => 'Relates or contributes to the Gather pillar',
         'slug' => 'gather'
@@ -289,7 +85,7 @@ function thegatherings_init() {
         'label' => 'Gender',
         'show_in_menu' => false
     );
-    register_taxonomy( 'gender', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'gender', array( 'post' ), $args );
     wp_insert_term( 'Women', 'gender', array(
         'description' => 'Designed for or suited to women',
         'slug' => 'women'
@@ -308,7 +104,7 @@ function thegatherings_init() {
         'label' => 'Relationship',
         'show_in_menu' => false
     );
-    register_taxonomy( 'relationship', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'relationship', array( 'post' ), $args );
     wp_insert_term( 'All Relationships', 'relationship', array(
         'description' => 'Designed for or suited to adults in any relationship',
         'slug' => 'all-relationships'
@@ -351,7 +147,7 @@ function thegatherings_init() {
         'label' => 'Topic',
         'show_in_menu' => false
     );
-    register_taxonomy( 'topic', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'topic', array( 'post' ), $args );
     wp_insert_term( 'Bible &amp; Theology', 'topic', array(
         'description' => 'Covers the Bible or Theology',
         'slug' => 'bible-theology'
@@ -378,7 +174,7 @@ function thegatherings_init() {
         'label' => 'Vocation',
         'show_in_menu' => false
     );
-    register_taxonomy( 'vocation', array( 'articles', 'guides', 'plans', 'studies' ), $args );
+    register_taxonomy( 'vocation', array( 'post' ), $args );
     wp_insert_term( 'All Vocations', 'vocation', array(
         'description' => 'Designed for or suited to adults in any vocational state',
         'slug' => 'all-vocations'
@@ -479,33 +275,6 @@ if ( ! function_exists( 'thegatherings_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'thegatherings_setup' );
 
-/**
- * Modify main query
- */
-function thegatherings_main_query( $query ) {
-	if ( $query->is_home() && $query->is_main_query() ) {
-		$post_type = $query->get( 'post_type' );
-		if ( ! $post_type ) {
-			$post_type = array( 'articles', 'guides', 'plans', 'studies' );
-		}
-		$query->set( 'post_type', $post_type );
-	}
-}
-add_action( 'pre_get_posts', 'thegatherings_main_query' );
-
-/**
- * Add Custom Post Types to the default feed
- *
- * See http://www.wpbeginner.com/wp-tutorials/how-to-add-custom-post-types-to-your-main-wordpress-rss-feed/
- *
- */
-function thegatherings_inject_post_types( $qv ) {
-    if ( isset( $qv['feed'] ) && !isset( $qv['post_type'] ) ) {
-        $qv['post_type'] = array( 'articles', 'guides', 'plans', 'studies' );
-    }
-    return $qv;
-}
-add_filter( 'request', 'thegatherings_inject_post_types' );
 
 /**
  * Add custom feed templates
