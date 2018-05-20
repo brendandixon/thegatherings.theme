@@ -61,6 +61,14 @@ function thegatherings_join( $values = array(), $between = ', ', $last = ' or ' 
 	}
 }
 
+function thegatherings_author() {
+	return 'theGatherings';
+}
+
+function thegatherings_author_url() {
+	return home_url();
+}
+
 function singularize($term) {
 	// Make this handle localized text
 	return ends_with($term, 'ies')

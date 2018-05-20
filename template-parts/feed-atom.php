@@ -51,7 +51,7 @@ do_action( 'rss_tag_pre', 'atom' );
 	?>
 	<entry>
 		<author>
-			<name><?php the_author() ?></name>
+			<name><?php thegatherings_author() ?></name>
 			<?php $author_url = get_the_author_meta('url'); if ( !empty($author_url) ) : ?>
 			<uri><?php the_author_meta('url')?></uri>
 			<?php endif;

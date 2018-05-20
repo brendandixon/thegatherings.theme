@@ -67,7 +67,7 @@ do_action( 'rss_tag_pre', 'rdf' );
 	<title><?php the_title_rss() ?></title>
 	<link><?php the_permalink_rss() ?></link>
 	<dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', $post->post_date_gmt, false); ?></dc:date>
-	<dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
+	<dc:creator><![CDATA[<?php thegatherings_author() ?>]]></dc:creator>
 	<?php the_category_rss('rdf') ?>
 	<description><![CDATA[<?php echo thegatherings_get_rss_card(); ?>]]></description>
 	<?php

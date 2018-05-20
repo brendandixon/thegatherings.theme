@@ -90,7 +90,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		<comments><?php comments_link_feed(); ?></comments>
 <?php endif; ?>
 		<pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
-		<dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
+		<dc:creator><![CDATA[<?php thegatherings_author() ?>]]></dc:creator>
 		<?php the_category_rss('rss2') ?>
 
 		<guid isPermaLink="true"><?php echo get_the_permalink(); ?></guid>
